@@ -1,0 +1,8 @@
+1.	下载最新everything
+	http://www.voidtools.com/
+	点击downlaod，选择Multilingual版本	
+
+2.	安装
+
+3.	工具>>选项>>索引>>文件夹>>添加
+	由于云盘需要进行索引配置，设置重扫描时间，中午12点事宜
