@@ -1,0 +1,8 @@
+﻿    在桌面按WIN +R; 输入regedit回车，依次找
+        计算机\
+        HKEY_CURRENT_USER\
+        Software\
+        Blizzard Entertainment\
+        Warcraft III
+        将Warcraft III整个项目删除。
+        然后本地打开魔兽一下。
