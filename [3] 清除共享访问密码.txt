@@ -1,0 +1,9 @@
+如何清除共享访问密码
+
+URL: https://jingyan.baidu.com/article/219f4bf7fce3ebde442d3834.html
+
+
+我的方法：
+
+计算机 >> 控制面板 >> 用户账户 >> 管理您的凭据 >> 选择IP，下拉菜单，从保管库中删除
+重新连接IP，输入账号和密码
