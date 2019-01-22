@@ -1,0 +1,35 @@
+如何屏蔽中英文切换ctrl+space
+
+URL: https://superuser.com/questions/327479/ctrl-space-always-toggles-chinese-ime-windows-7
+
+
+I've been aware of this Windows bug for years. After tons of unsatisfying workarounds and fruitless searching the one or two times a year I attempt to find a solution, I finally have it!
+
+Procedure
+	Go to Start > Type in regedit and start it
+	Navigate to HKEY_CURRENT_USER/Control Panel/Input Method/Hot Keys
+	Select the key named:
+		00000070 for the Chinese (Traditional) IME - Ime/NonIme Toggle hotkey
+		00000010 for the Chinese (Simplified) IME - Ime/NonIme Toggle hotkey
+		
+	In the right sub-window, there are three subkeys.
+	Key Modifiers designate Alt/Ctrl/Shift/etc and is set to Ctrl (02c00000).
+	Virtual Key designates the finishing key and is set to Space (20000000).
+	
+	Change the first byte in Key Modifiers from 02 to 00
+	Change the first byte in Virtual Key from 20 to FF
+	
+	Log off and log back on. I don't think it's necessary to restart.
+	Do not change the Hot keys for input languages in Control Panel, unless you want to do this all over again.
+	这句话不对,需要重启生效
+
+Notes: Symptoms
+	Each registry key (thing that looks like a folder) is for each specific hotkey setting that you would normally find in Control Panel > Region and Language > Keyboards and Languages > Change keyboards... > Advanced Key Settings > Hot keys for input languages.
+	The recurring bug is the hotkey being automatically reset to Ctrl+space even if changed via the GUI.
+	
+里面有个回答说到：HKEY_CURRENT_USER/Control Panel/Input Method/Hot Keys，保存的是当前用户的快捷键配置；
+HKEY_USERS\.DEFAULT\Control Panel\Input Method\Hot Keys，保存的是默认的快捷键配置；
+在Win10上，不知为何，当前用户的快捷键配置并没有效果，每次重启之后，系统都会读取默认的快捷键配置。
+所以我们只要改默认的快捷键配置就行了~~
+Update：2017-08-28据评论区反馈，最好把“当前用户的快捷键配置”和“默认的快捷键配置”都修改下，保险~~
+同时修改成功后要重启你的软件（或者直接重启电脑）才会生效。
